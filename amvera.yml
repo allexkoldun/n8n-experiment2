@@ -1,0 +1,10 @@
+# amvera.yml
+
+runtime: docker # Указываем, что будем использовать кастомный Dockerfile или образ
+build_command: echo "Build skipped for pre-built image" # Сборка образа уже выполнена разработчиками, пропускаем
+start_command: >
+  n8n start 
+  --generic_oauth_enabled=false 
+  --telemetry_enabled=false 
+  --execution_mode=regular 
+  --queue_bull_redis_host=$REDIS_HOST # Пример переменных для масштабирования (опционально)
